@@ -26,6 +26,12 @@ if selected_agent == 'naive_chat':
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
+    with st.sidebar:
+        clear_his = st.button('清除对话历史')
+        if clear_his:
+            st.session_state.messages = []
+            st.rerun()  # tricky!
+
     llm = ChatOpenAI(
         model='qwen-max',
         openai_api_key=config['key']['bailian_api_key'],
