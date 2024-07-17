@@ -93,7 +93,7 @@ class IntroToolNode:
         tool_result = ''
         for tool_call in message.tool_calls:
             if tool_call['name'] == 'intro_tool':
-                tool_result = exp_tool(tool_call['args'])
+                tool_result = intro_tool(tool_call['args'])
                 outputs.append(
                     ToolMessage(
                         content=json.dumps(tool_result, ensure_ascii=False),

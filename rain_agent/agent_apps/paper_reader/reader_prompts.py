@@ -58,7 +58,7 @@ intro_prompt_template = ChatPromptTemplate.from_messages(
     [
         ('system', intro_sys_prompt),
         ('system', '{passage}'),
-        ('system', intro_user_prompt)
+        ('user', intro_user_prompt)
     ]
 )
 
