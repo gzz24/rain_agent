@@ -7,3 +7,6 @@ files
 __pycache__
 
 playground
+
+toys/*.png
+toys/*.jpg
