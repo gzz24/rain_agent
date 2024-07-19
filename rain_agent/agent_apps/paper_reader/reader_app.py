@@ -3,6 +3,8 @@ import glob
 import json
 from typing import TypedDict, Annotated
 from rain_agent.configs import config
+from PyPDF2 import PdfReader
+from streamlit_pdf_viewer import pdf_viewer
 
 import streamlit as st
 
@@ -12,10 +14,18 @@ pdf_dir = '/Users/zhoushuzhe1/code/rain_agent/data/papers'
 
 
 def _get_pdf_text(pdf_path) -> str:
-    text_path = pdf_path[:-4] + '.txt'
-    with open(text_path, 'r', encoding='utf-8') as f:
-        t = f.read().strip()
-    return t
+    # text_path = pdf_path[:-4] + '.txt'
+    # with open(text_path, 'r', encoding='utf-8') as f:
+    #     t = f.read().strip()
+
+    reader = PdfReader(pdf_path)
+
+    text_lst = []
+    for e in reader.pages:
+        text_lst.append(e.extract_text())
+
+    text = '\n\n'.join(text_lst)
+    return text
 
 
 def _st_select_pdf_file():
