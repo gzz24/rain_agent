@@ -45,7 +45,7 @@ def main_detail(state: MainState):
             'passage': passage,
             'point': e
         })
-    details = detail_llm.batch(input_lst, config={'max_concurrency': 10})
+    details = detail_llm.batch(input_lst, config={'max_concurrency': 5})
 
     return {
         'point_detail': list(x.content for x in details)

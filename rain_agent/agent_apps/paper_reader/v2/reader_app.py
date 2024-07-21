@@ -45,27 +45,34 @@ def run_reader():
         summary_state = {'paper_content': pdf_texts}
         print('summary...')
         res = summary_graph.invoke(summary_state)
-        st.title('Summary')
-        st.write(res['summary'])
+        with st.expander('Summary'):
+            st.write(res['summary'])
 
         # main
         main_state = {'paper_content': pdf_texts}
         print('main...')
         res2 = main_graph.invoke(main_state)
-        st.title('Main')
-        points, details = res2['point'], res2['point_detail']
-        for ep, ed in zip(points, details):
-            st.subheader(ep)
-            st.write(ed)
-            st.divider()
+        with st.expander('Main'):
+            points, details = res2['point'], res2['point_detail']
+            for ep, ed in zip(points, details):
+                st.subheader(ep)
+                st.write(ed)
+                st.divider()
 
         # ref
         ref_state = {'paper_content': pdf_texts}
         print('ref...')
         res3 = ref_graph.invoke(ref_state)
-        st.title('Ref')
-        ref, ref_content = res3['ref'], res3['ref_content']
-        for er, rc in zip(ref, ref_content):
-            st.write(er)
-            st.write(rc)
-            st.divider()
+        with st.expander('Ref'):
+            ref, ref_content = res3['ref'], res3['ref_content']
+            for er, rc in zip(ref, ref_content):
+                st.write(er.year)
+                st.write(er.authors)
+                st.write(er.title)
+                st.write(er.how_related)
+                for erc in rc:
+                    st.text(erc.location)
+                    st.code(erc.origin_text)
+                    st.text(erc.ref_reason)
+                    st.text('---\n---')
+                st.divider()

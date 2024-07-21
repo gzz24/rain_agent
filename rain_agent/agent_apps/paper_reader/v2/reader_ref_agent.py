@@ -89,7 +89,7 @@ def relocate_ref(state: RefState):
             'how_related': e_ref.how_related
         })
 
-    ref_content = relocate_llm.batch(input_lst, config={'max_concurrency': 10})
+    ref_content = relocate_llm.batch(input_lst, config={'max_concurrency': 5})
 
     return {
         'raw_ref_content': list(x.content for x in ref_content)
@@ -103,7 +103,7 @@ def extract_relocate_ref(state: RefState):
     extract_llm = extract_relocate_prompt_template | llm_core.with_structured_output(RefReasons)
 
     input_lst = [{'reason': x} for x in raw_ref_content]
-    result = extract_llm.batch(input_lst, config={'max_concurrency': 10})
+    result = extract_llm.batch(input_lst, config={'max_concurrency': 5})
 
     return {
         'ref_content': list(x.ref_reasons for x in result)
