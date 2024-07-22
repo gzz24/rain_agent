@@ -10,9 +10,10 @@ from agent_apps.naive_chat import run_naive_chat
 from agent_apps.naive_agent import run_naive_agent
 from agent_apps.paper_reader import run_reader
 from agent_apps.paper_reader_v3 import run_reader as run_reader_v3
+from agent_apps.paper_splitter.splitter_app import run_splitter
 
 # 暂时只有这些应用
-op_lst = ['naive_chat', 'naive_agent', 'paper_reader', 'other_agent', 'paper_reader_v3']
+op_lst = ['naive_chat', 'naive_agent', 'paper_reader', 'other_agent', 'paper_reader_v3', 'paper_splitter']
 st.set_page_config(
     page_title='rain_agent',
     initial_sidebar_state='expanded'
@@ -30,5 +31,7 @@ elif selected_agent == 'paper_reader':
     run_reader()
 elif selected_agent == 'paper_reader_v3':
     run_reader_v3()
+elif selected_agent == 'paper_splitter':
+    run_splitter()
 else:
     st.write('开发中...')
