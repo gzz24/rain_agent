@@ -1,28 +1,40 @@
 import os
 import glob
 import streamlit as st
+import requests
+import json
 
 from PyPDF2 import PdfReader
 from .reader_main_agent import main_graph
 from .reader_ref_agent import ref_graph
 from .reader_summary_agent import summary_graph
 
+from rain_agent.configs import config
 
 pdf_dir = '/Users/zhoushuzhe1/code/rain_agent/data/papers'
 
 
+@st.cache_data
 def _get_pdf_text(pdf_path) -> str:
-    # text_path = pdf_path[:-4] + '.txt'
-    # with open(text_path, 'r', encoding='utf-8') as f:
-    #     t = f.read().strip()
+    # reader = PdfReader(pdf_path)
+    #
+    # text_lst = []
+    # for e in reader.pages:
+    #     text_lst.append(e.extract_text())
+    #
+    # text = '\n\n'.join(text_lst)
 
-    reader = PdfReader(pdf_path)
+    with open(pdf_path, 'rb') as f:
+        files = {'file': ('_temp.pdf', f, 'application/pdf')}
+        response = requests.post(config['pdf']['url'], files=files)
 
-    text_lst = []
-    for e in reader.pages:
-        text_lst.append(e.extract_text())
+    res_json = response.json()
+    text = ''
+    for e_page in res_json:
+        for e_block in e_page:
+            text += e_block['text']
+        text += '\n\n'
 
-    text = '\n\n'.join(text_lst)
     return text
 
 
@@ -38,9 +50,9 @@ def _st_select_pdf_file():
 def run_reader():
     selected_pdf, f2n, n2f = _st_select_pdf_file()
 
-    pdf_texts = _get_pdf_text(n2f[selected_pdf])
-
     if st.button(label='开始读论文'):
+
+        pdf_texts = _get_pdf_text(n2f[selected_pdf])
         # summary
         summary_state = {'paper_content': pdf_texts}
         print('summary...')
