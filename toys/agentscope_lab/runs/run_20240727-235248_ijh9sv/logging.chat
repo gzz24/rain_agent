@@ -1,0 +1,6 @@
+{"id": "b70a2f0f680a4cbd9935568b22540b70", "timestamp": "2024-07-27 23:52:52", "name": "assistant", "content": "User:", "role": "assistant", "url": null, "metadata": null, "_colored_name": "\u001b[95massistant\u001b[0m"}
+{"id": "649a9d031c6f40c5939ac6180f6ffb4d", "timestamp": "2024-07-27 23:52:54", "name": "User", "content": "我姓王", "role": "user", "url": null, "metadata": null, "_colored_name": "\u001b[97mUser\u001b[0m"}
+{"id": "b265f912513440a1b728b6000bccbfa3", "timestamp": "2024-07-27 23:52:57", "name": "assistant", "content": "您好，王先生。有什么可以帮助您的吗？", "role": "assistant", "url": null, "metadata": null, "_colored_name": "\u001b[95massistant\u001b[0m"}
+{"id": "7ec71b0e2324480498ad016f1741d11e", "timestamp": "2024-07-27 23:53:03", "name": "User", "content": "我姓什么？", "role": "user", "url": null, "metadata": null, "_colored_name": "\u001b[97mUser\u001b[0m"}
+{"id": "4b47e221e8094223a1560fdb6544fd63", "timestamp": "2024-07-27 23:53:08", "name": "assistant", "content": "您姓王。", "role": "assistant", "url": null, "metadata": null, "_colored_name": "\u001b[95massistant\u001b[0m"}
+{"id": "e2058005351b4c5f84b80169fb4849f0", "timestamp": "2024-07-27 23:54:14", "name": "User", "content": "exit", "role": "user", "url": null, "metadata": null, "_colored_name": "\u001b[97mUser\u001b[0m"}

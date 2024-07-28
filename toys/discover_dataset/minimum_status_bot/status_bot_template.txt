@@ -1,0 +1,54 @@
+
+
+
+class $name$_State(TypedDict):
+    messages: Annotated[list, add_messages]
+
+
+llm = ChatOpenAI(
+    model='qwen-max',
+    openai_api_key=config['key']['bailian_api_key'],
+    openai_api_base=config['key']['bailian_base_url']
+)
+
+def call_model(state: $name$_State):
+    messages = state['messages']
+    response = llm.invoke(messages)
+    print(f"model: {response.content}")
+    return {
+        'messages': [response]
+    }
+
+
+def status_update(state: $name$_State):
+    pass
+
+
+def status_apply(state: $name$_State):
+    pass
+
+graph_builder = StateGraph($name$_State)
+graph_builder.add_node('llm', call_model)
+graph_builder.add_node('status_apply', status_apply)
+graph_builder.add_node('status_update', status_update)
+
+graph_builder.add_edge(START, 'status_apply')
+graph_builder.add_edge('status_apply', 'llm')
+graph_builder.add_edge('llm', 'status_update')
+graph_builder.add_edge('status_update', END)
+graph = graph_builder.compile()
+
+
+def call_$name$_status_graph(outer_state):
+    sub_state_name = '$name$_'
+    sub_states = outer_state['sub_states']
+    sub_state = sub_states[sub_state_name]
+
+    # don't forget to use response
+    new_sub_state, response = graph.invoke(sub_state)
+
+    sub_states[sub_state_name] = new_sub_state
+
+    return {
+        'sub_states': sub_states
+    }

@@ -1,0 +1,16 @@
+2024-07-27 23:51:19.423 | INFO     | agentscope.models:read_model_configs:186 - Load configs for model wrapper: base
+2024-07-27 23:51:19.426 | INFO     | agentscope.models.model:__init__:201 - Initialize model by configuration [base]
+2024-07-27 23:51:19.429 | WARNING  | agentscope.message:__init__:148 - A new field `role` is newly added to the message. Please specify the role of the message. Currently we use a default "assistant" value.
+2024-07-27 23:51:19.429 | WARNING  | agentscope.message:__init__:148 - A new field `role` is newly added to the message. Please specify the role of the message. Currently we use a default "assistant" value.
+assistant: User:
+User: i
+assistant: It seems your message might be incomplete or a typo. How can I assist you? If you have a question or need information, feel free to ask!
+User: 你好呀
+assistant: 你好！有什么可以帮助你的吗？
+User: 我姓王
+assistant: 你好，王先生！有什么问题或需要我提供的帮助吗？
+User: 我姓石
+assistant: 你好，石先生！有什么问题或需要我协助的吗？
+User: 我姓什么？
+assistant: 您刚才告诉我您姓石。所以，您姓石。如果有其他问题，欢迎随时提问！
+User: exit

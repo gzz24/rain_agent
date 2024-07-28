@@ -1,0 +1,2 @@
+{"id": "195b69e388a74a22bce753651caad7d5", "timestamp": "2024-07-28 00:18:23", "name": "assistant", "content": "User:", "role": "assistant", "url": null, "metadata": null, "_colored_name": "\u001b[96massistant\u001b[0m"}
+{"id": "4ab5e07c5479445eb70c55f4a406a4cd", "timestamp": "2024-07-28 00:18:35", "name": "User", "content": "exit", "role": "user", "url": null, "metadata": null, "_colored_name": "\u001b[92mUser\u001b[0m"}

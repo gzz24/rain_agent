@@ -1,0 +1,6 @@
+2024-07-28 00:18:19.926 | INFO     | agentscope.models:read_model_configs:186 - Load configs for model wrapper: base
+2024-07-28 00:18:19.928 | INFO     | agentscope.models.model:__init__:201 - Initialize model by configuration [base]
+2024-07-28 00:18:19.930 | WARNING  | agentscope.message:__init__:148 - A new field `role` is newly added to the message. Please specify the role of the message. Currently we use a default "assistant" value.
+2024-07-28 00:18:19.931 | WARNING  | agentscope.message:__init__:148 - A new field `role` is newly added to the message. Please specify the role of the message. Currently we use a default "assistant" value.
+assistant: User:
+User: exit

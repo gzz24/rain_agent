@@ -1,0 +1,10 @@
+2024-07-27 23:52:50.221 | INFO     | agentscope.models:read_model_configs:186 - Load configs for model wrapper: base
+2024-07-27 23:52:50.223 | INFO     | agentscope.models.model:__init__:201 - Initialize model by configuration [base]
+2024-07-27 23:52:50.226 | WARNING  | agentscope.message:__init__:148 - A new field `role` is newly added to the message. Please specify the role of the message. Currently we use a default "assistant" value.
+2024-07-27 23:52:50.226 | WARNING  | agentscope.message:__init__:148 - A new field `role` is newly added to the message. Please specify the role of the message. Currently we use a default "assistant" value.
+assistant: User:
+User: 我姓王
+assistant: 您好，王先生。有什么可以帮助您的吗？
+User: 我姓什么？
+assistant: 您姓王。
+User: exit
